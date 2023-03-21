@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 export const ProfileContainer = styled.div`
-  margin-top: 25rem;
-  width: 64rem;
+  width: 100%;
   height: 13.25rem;
   background: ${(props) => props.theme['base-profile']};
   border-radius: 10px;
@@ -40,12 +39,18 @@ export const HeaderProfile = styled.div`
   display: flex;
   justify-content: space-between;
 
-  div {
+  a {
+    text-decoration: none;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     color: ${(props) => props.theme.blue};
     font-size: 0.75rem;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `
 

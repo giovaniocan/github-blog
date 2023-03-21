@@ -19,10 +19,10 @@ export function Profile() {
       <ContenteProfile>
         <HeaderProfile>
           <h2>Giovani Apolinario </h2>
-          <div>
+          <a href="https://github.com/giovaniocan">
             <h3>GITHUB</h3>
             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-          </div>
+          </a>
         </HeaderProfile>
 
         <span>

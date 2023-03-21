@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const ProfileContainer = styled.div`
-  margin-top: 15rem;
+  margin-top: 25rem;
   width: 64rem;
   height: 13.25rem;
   background: ${(props) => props.theme['base-profile']};

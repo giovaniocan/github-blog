@@ -1,7 +1,9 @@
+import { PostInfo } from '../../components/PostInfo'
+
 export function Post() {
   return (
     <div>
-      <h1>Post</h1>
+      <PostInfo />
     </div>
   )
 }

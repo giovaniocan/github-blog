@@ -1,21 +1,29 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
 import { api } from '../lib/axios'
 
+interface User {
+  name: string
+  avatar_url: string
+  html_url: string
+  bio: string
+  followers: number
+}
+
 interface BlogContextType {
-  userData: any
+  userData: User
 }
 
 interface BlogProviderProps {
   children: ReactNode
 }
 
-const BlogContext = createContext({} as BlogContextType)
+export const BlogContext = createContext({} as BlogContextType)
 
 export function BlogProvider({ children }: BlogProviderProps) {
-  const [userData, setUserData] = useState({})
+  const [userData, setUserData] = useState<User>({} as User)
 
   const fetchUserData = async () => {
-    const response = await api.get('/users/giovaniocan')
+    const response = await api.get<User>('/users/giovaniocan')
     setUserData(response.data)
   }
 

@@ -12,14 +12,18 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { useContext } from 'react'
+import { BlogContext } from '../../contexts/blogContext'
 export function Profile() {
+  const { userData } = useContext(BlogContext)
+
   return (
     <ProfileContainer>
-      <img src="https://github.com/giovaniocan.png" alt="" />
+      <img src={userData.avatar_url} alt="" />
       <ContenteProfile>
         <HeaderProfile>
-          <h2>Giovani Apolinario </h2>
-          <a href="https://github.com/giovaniocan">
+          <h2>{userData.name} </h2>
+          <a href={userData.html_url}>
             <h3>GITHUB</h3>
             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
           </a>
@@ -28,12 +32,12 @@ export function Profile() {
         <span>
           Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
           viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat
-          pulvinar vel mass.
+          pulvinar vel mass. {/* ver o css sobre a bio */}
         </span>
         <ContactInfo>
           <Eachinfo>
             <FontAwesomeIcon icon={faGithub} />
-            <span>giovaniocan</span>
+            <span>{userData.name}</span>
           </Eachinfo>
           <Eachinfo>
             <FontAwesomeIcon icon={faBuilding} />
@@ -41,7 +45,7 @@ export function Profile() {
           </Eachinfo>
           <Eachinfo>
             <FontAwesomeIcon icon={faUserGroup} />
-            <span>0 seguidores</span>
+            <span>{userData.followers} seguidores</span>
           </Eachinfo>
         </ContactInfo>
       </ContenteProfile>

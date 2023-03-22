@@ -29,11 +29,7 @@ export function Profile() {
           </a>
         </HeaderProfile>
 
-        <span>
-          Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-          viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat
-          pulvinar vel mass. {/* ver o css sobre a bio */}
-        </span>
+        <span>{userData.bio}</span>
         <ContactInfo>
           <Eachinfo>
             <FontAwesomeIcon icon={faGithub} />

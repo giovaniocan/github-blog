@@ -15,24 +15,13 @@ export const PostsContainer = styled.button`
   &:hover {
     border: 1px solid ${(props) => props.theme['base-label']};
   }
-  .markdown-paragraph {
-    margin-top: 1.25rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 160%;
-    color: ${(props) => props.theme['base-text']};
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
 `
 
 export const HeaderPost = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 3.6rem;
+  gap: 3.2rem;
 
   h1 {
     font-size: 1.25rem;

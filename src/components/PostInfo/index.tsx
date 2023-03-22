@@ -6,6 +6,7 @@ import {
   faComment,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { NavLink } from 'react-router-dom'
 import {
   ContactInfo,
   Eachinfo,
@@ -18,10 +19,10 @@ export function PostInfo() {
     <div>
       <PostInfoContainer>
         <HeaderOptions>
-          <a>
+          <NavLink to={'/'} style={{ textDecoration: 'none' }}>
             <FontAwesomeIcon icon={faChevronLeft} />
             <h3>VOLTAR</h3>
-          </a>
+          </NavLink>
           <a href="https://github.com/giovaniocan">
             <h3>VER NO GITHUB</h3>
             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />

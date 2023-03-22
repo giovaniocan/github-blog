@@ -9,7 +9,9 @@ export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <BrowserRouter>
-        <Router />
+        <BlogProvider>
+          <Router />
+        </BlogProvider>
       </BrowserRouter>
       <Globalstyle />
     </ThemeProvider>

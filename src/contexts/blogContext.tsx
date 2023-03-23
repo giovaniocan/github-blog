@@ -12,7 +12,7 @@ interface User {
 interface Post {
   id: number
   title: string
-  /*   slug: string */
+  number: number
   body: string
   created_at: Date
   html_url: string

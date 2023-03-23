@@ -27,14 +27,17 @@ export const HeaderContainer = styled.div`
   }
 `
 
-export const SearchInput = styled.input`
-  border-radius: 6px;
-  border: 0;
-  background: ${(props) => props.theme['base-input']};
-  color: ${(props) => props.theme['base-text']};
-  padding: 0.75rem;
+export const Formcontainer = styled.form`
+  input {
+    width: 100%;
+    border-radius: 6px;
+    border: 0;
+    background: ${(props) => props.theme['base-input']};
+    color: ${(props) => props.theme['base-text']};
+    padding: 0.75rem;
 
-  &::placeholder {
-    color: ${(props) => props.theme['base-label']};
+    &::placeholder {
+      color: ${(props) => props.theme['base-label']};
+    }
   }
 `

@@ -1,10 +1,10 @@
 import { PostInfo } from '../../components/PostInfo'
 import { PostContainer, PostContent } from './styles'
-import { useParams } from 'react-router-dom'
+/* import { useParams } from 'react-router-dom' */
 
 export function Post() {
-  const params = useParams()
-  console.log(params)
+  /* 
+  const params = useParams() */
   return (
     <PostContainer>
       <PostInfo />

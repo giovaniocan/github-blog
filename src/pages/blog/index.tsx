@@ -8,7 +8,6 @@ import { PostCard } from './PostCard'
 
 export function Blog() {
   const { posts } = useContext(BlogContext)
-  console.log(posts)
   return (
     <BlogContainer>
       <Profile />

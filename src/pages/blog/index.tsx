@@ -19,7 +19,7 @@ export function Blog() {
             <PostCard
               key={post.id}
               body={post.body}
-              created_at={post.created_at}
+              createdat={post.created_at}
               id={post.id}
               title={post.title}
               number={post.number}

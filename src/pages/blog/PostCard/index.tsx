@@ -7,18 +7,18 @@ interface PostCardProps {
   number: number
   id: number
   title: string
-  created_at: Date
+  createdat: Date
   body: string
 }
 export function PostCard({
   id,
   title,
   // eslint-disable-next-line camelcase
-  created_at,
+  createdat,
   body,
   number,
 }: PostCardProps) {
-  const date = formatDistanceToNow(new Date(created_at), {
+  const date = formatDistanceToNow(new Date(createdat), {
     locale: ptBR,
     addSuffix: true,
   })

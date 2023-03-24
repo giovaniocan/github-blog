@@ -27,7 +27,7 @@ interface BlogContextType {
   posts: Post[]
   selectCompletePost: (id: number) => void
   completePost: Post
-  alterListofPosts: (id: number) => void
+  alterListofPosts: (id: string) => void
 }
 
 interface BlogProviderProps {
@@ -58,11 +58,14 @@ export function BlogProvider({ children }: BlogProviderProps) {
     setCompletePost(Completedpost)
   }
 
-  function alterListofPosts(id: number) {
-    const listOfPost = posts.filter((post) => {
-      return post.id === id
+  function alterListofPosts(query: string) {
+    setPosts([])
+
+    posts.forEach((post) => {
+      if (post.title.includes(query)) {
+        setPosts((oldState) => [...oldState, post])
+      }
     })
-    setPosts(listOfPost)
   }
 
   useEffect(() => {

@@ -7,7 +7,6 @@ import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 
 export function Post() {
   const { completePost } = useContext(BlogContext)
-  console.log(completePost.body)
   return (
     <PostContainer>
       <PostInfo

@@ -1,12 +1,14 @@
 import { PostInfo } from '../../components/PostInfo'
 import { PostContainer, PostContent } from './styles'
 
-import { useContext } from 'react'
 import { BlogContext } from '../../contexts/blogContext'
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
+import { useContextSelector } from 'use-context-selector'
 
 export function Post() {
-  const { completePost } = useContext(BlogContext)
+  const completePost = useContextSelector(BlogContext, (context) => {
+    return context.completePost
+  })
   return (
     <PostContainer>
       <PostInfo

@@ -2,8 +2,9 @@ import { HeaderContainer, SearchIssuesCotnainer, Formcontainer } from './styles'
 import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { BlogContext } from '../../contexts/blogContext'
+import { useContextSelector } from 'use-context-selector'
 
 const searchFormSchema = z.object({
   query: z.string(),
@@ -12,7 +13,12 @@ const searchFormSchema = z.object({
 type SearchFormInput = z.infer<typeof searchFormSchema>
 
 export function SearchIssues() {
-  const { alterListofPosts, posts } = useContext(BlogContext)
+  const alterListofPosts = useContextSelector(BlogContext, (context) => {
+    return context.alterListofPosts
+  })
+  const posts = useContextSelector(BlogContext, (context) => {
+    return context.posts
+  })
   const [text, setText] = useState('')
   const { register, handleSubmit } = useForm<SearchFormInput>({
     resolver: zodResolver(searchFormSchema),
@@ -24,7 +30,6 @@ export function SearchIssues() {
 
   useEffect(() => {
     alterListofPosts(text)
-    console.log(text)
   }, [text])
 
   return (

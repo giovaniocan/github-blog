@@ -12,10 +12,12 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
-import { useContext } from 'react'
 import { BlogContext } from '../../contexts/blogContext'
+import { useContextSelector } from 'use-context-selector'
 export function Profile() {
-  const { userData } = useContext(BlogContext)
+  const userData = useContextSelector(BlogContext, (context) => {
+    return context.userData
+  })
 
   return (
     <ProfileContainer>

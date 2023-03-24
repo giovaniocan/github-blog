@@ -1,13 +1,14 @@
-import { useContext } from 'react'
 import { Profile } from '../../components/profile'
 import { SearchIssues } from '../../components/searchIssues'
 import { BlogContext } from '../../contexts/blogContext'
 import { BlogContainer, ListofPosts } from './styles'
-
+import { useContextSelector } from 'use-context-selector'
 import { PostCard } from './PostCard'
 
 export function Blog() {
-  const { posts } = useContext(BlogContext)
+  const posts = useContextSelector(BlogContext, (context) => {
+    return context.posts
+  })
   return (
     <BlogContainer>
       <Profile />

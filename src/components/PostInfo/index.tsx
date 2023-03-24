@@ -13,8 +13,26 @@ import {
   HeaderOptions,
   PostInfoContainer,
 } from './styles'
+import { formatDistanceToNow } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
 
-export function PostInfo() {
+interface PostInfoProps {
+  htmlUrl: string
+  title: string
+  createdAt: Date
+  comments: number
+}
+
+export function PostInfo({
+  htmlUrl,
+  title,
+  createdAt,
+  comments,
+}: PostInfoProps) {
+  const date = formatDistanceToNow(new Date(createdAt), {
+    locale: ptBR,
+    addSuffix: true,
+  })
   return (
     <div>
       <PostInfoContainer>
@@ -23,12 +41,12 @@ export function PostInfo() {
             <FontAwesomeIcon icon={faChevronLeft} />
             <h3>VOLTAR</h3>
           </NavLink>
-          <a href="https://github.com/giovaniocan">
+          <a href={htmlUrl}>
             <h3>VER NO GITHUB</h3>
             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
           </a>
         </HeaderOptions>
-        <h1>JavaScript data types and data structures</h1>
+        <h1>{title}</h1>
         <ContactInfo>
           <Eachinfo>
             <FontAwesomeIcon icon={faGithub} />
@@ -36,11 +54,11 @@ export function PostInfo() {
           </Eachinfo>
           <Eachinfo>
             <FontAwesomeIcon icon={faCalendarDay} />
-            <span>há 1 dia</span>
+            <span>{date}</span>
           </Eachinfo>
           <Eachinfo>
             <FontAwesomeIcon icon={faComment} />
-            <span>0 comentarios</span>
+            <span>{comments} comentarios</span>
           </Eachinfo>
         </ContactInfo>
       </PostInfoContainer>

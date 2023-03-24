@@ -1,23 +1,27 @@
 import { PostInfo } from '../../components/PostInfo'
 import { PostContainer, PostContent } from './styles'
-/* import { useParams } from 'react-router-dom' */
+
+import { useContext } from 'react'
+import { BlogContext } from '../../contexts/blogContext'
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 
 export function Post() {
-  /* 
-  const params = useParams() */
+  const { completePost } = useContext(BlogContext)
+  console.log(completePost.body)
   return (
     <PostContainer>
-      <PostInfo />
+      <PostInfo
+        key={completePost.id}
+        comments={completePost.comments}
+        createdAt={completePost.created_at}
+        htmlUrl={completePost.html_url}
+        title={completePost.title}
+      />
 
       <PostContent>
-        Programming languages all have built-in data structures, but these often
-        differ from one language to another. This article attempts to list the
-        built-in data structures available in JavaScript and what properties
-        they have. These can be used to build other data structures. Wherever
-        possible, comparisons with other languages are drawn. Dynamic typing
-        JavaScript is a loosely typed and dynamic language. Variables in
-        JavaScript are not directly associated with any particular value type,
-        and any variable can be assigned (and re-assigned) values of all types:
+        <ReactMarkdown className="markdown-paragraph">
+          {completePost.body}
+        </ReactMarkdown>
       </PostContent>
     </PostContainer>
   )

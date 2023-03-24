@@ -3,6 +3,8 @@ import { formatDistanceToNow } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
 import ReactMarkdown from 'react-markdown'
 import { NavLink } from 'react-router-dom'
+import { useContext } from 'react'
+import { BlogContext } from '../../../contexts/blogContext'
 interface PostCardProps {
   number: number
   id: number
@@ -18,12 +20,16 @@ export function PostCard({
   body,
   number,
 }: PostCardProps) {
+  const { selectCompletePost } = useContext(BlogContext)
   const date = formatDistanceToNow(new Date(createdat), {
     locale: ptBR,
     addSuffix: true,
   })
+  function handleSelectedPost() {
+    selectCompletePost(number)
+  }
   return (
-    <PostsContainer>
+    <PostsContainer onClick={handleSelectedPost}>
       <NavLink to={`/post/${number}`} style={{ textDecoration: 'none' }}>
         <HeaderPost>
           <h1>{title}</h1>

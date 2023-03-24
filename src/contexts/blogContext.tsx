@@ -25,6 +25,8 @@ interface Post {
 interface BlogContextType {
   userData: User
   posts: Post[]
+  selectCompletePost: (id: number) => void
+  completePost: Post
 }
 
 interface BlogProviderProps {
@@ -36,6 +38,7 @@ export const BlogContext = createContext({} as BlogContextType)
 export function BlogProvider({ children }: BlogProviderProps) {
   const [userData, setUserData] = useState<User>({} as User)
   const [posts, setPosts] = useState<Post[]>([])
+  const [completePost, setCompletePost] = useState<Post>({} as Post)
 
   const fetchUserData = async () => {
     const response = await api.get<User>('/users/giovaniocan')
@@ -49,12 +52,19 @@ export function BlogProvider({ children }: BlogProviderProps) {
     setPosts(response.data.items)
   }
 
+  function selectCompletePost(id: number) {
+    const Completedpost = posts.find((item) => item.number === id) as Post
+    setCompletePost(Completedpost)
+  }
+
   useEffect(() => {
     fetchUserData()
     fetchPosts()
   }, [])
   return (
-    <BlogContext.Provider value={{ userData, posts }}>
+    <BlogContext.Provider
+      value={{ userData, posts, selectCompletePost, completePost }}
+    >
       {children}
     </BlogContext.Provider>
   )

@@ -29,6 +29,7 @@ interface BlogContextType {
   selectCompletePost: (id: number) => void
   completePost: Post
   alterListofPosts: (id: string) => void
+  /* filteredListPosts: Post[] */
 }
 
 interface BlogProviderProps {
@@ -41,7 +42,8 @@ export function BlogProvider({ children }: BlogProviderProps) {
   const [userData, setUserData] = useState<User>({} as User)
   const [posts, setPosts] = useState<Post[]>([])
   const [completePost, setCompletePost] = useState<Post>({} as Post)
-
+  /*   const [filteredListPosts, setFilteredListPosts] = useState<Post[]>([])
+   */
   const fetchUserData = async () => {
     const response = await api.get<User>('/users/giovaniocan')
     setUserData(response.data)
@@ -60,10 +62,11 @@ export function BlogProvider({ children }: BlogProviderProps) {
   }
 
   function alterListofPosts(query: string) {
+    /* setFilteredListPosts([]) */
     setPosts([])
-
     posts.forEach((post) => {
       if (post.title.includes(query)) {
+        /* setFilteredListPosts((oldState) => [...oldState, post]) */
         setPosts((oldState) => [...oldState, post])
       }
     })
@@ -81,6 +84,7 @@ export function BlogProvider({ children }: BlogProviderProps) {
         selectCompletePost,
         completePost,
         alterListofPosts,
+        /* filteredListPosts, */
       }}
     >
       {children}

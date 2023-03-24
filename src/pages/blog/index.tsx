@@ -6,6 +6,9 @@ import { useContextSelector } from 'use-context-selector'
 import { PostCard } from './PostCard'
 
 export function Blog() {
+  /* const posts = useContextSelector(BlogContext, (context) => {
+    return context.filteredListPosts
+  }) */
   const posts = useContextSelector(BlogContext, (context) => {
     return context.posts
   })

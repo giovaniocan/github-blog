@@ -28,11 +28,13 @@ export function PostCard({
     locale: ptBR,
     addSuffix: true,
   })
-  function handleSelectedPost() {
+
+  function teste() {
     selectCompletePost(number)
   }
+
   return (
-    <PostsContainer onClick={handleSelectedPost}>
+    <PostsContainer onClick={teste}>
       <NavLink to={`/post/${number}`} style={{ textDecoration: 'none' }}>
         <HeaderPost>
           <h1>{title}</h1>

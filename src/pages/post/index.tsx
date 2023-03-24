@@ -9,9 +9,8 @@ export function Post() {
   const completePost = useContextSelector(BlogContext, (context) => {
     return context.completePost
   })
-  console.log('ta vindo aqui')
   console.log(completePost.title)
-
+  console.log('chega aqui')
   return (
     <PostContainer>
       <PostInfo

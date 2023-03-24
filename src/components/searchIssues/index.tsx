@@ -3,6 +3,7 @@ import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useEffect, useState } from 'react'
+
 import { BlogContext } from '../../contexts/blogContext'
 import { useContextSelector } from 'use-context-selector'
 
@@ -16,6 +17,9 @@ export function SearchIssues() {
   const alterListofPosts = useContextSelector(BlogContext, (context) => {
     return context.alterListofPosts
   })
+  /*  const filteredListPosts = useContextSelector(BlogContext, (context) => {
+    return context.filteredListPosts
+  }) */
   const posts = useContextSelector(BlogContext, (context) => {
     return context.posts
   })

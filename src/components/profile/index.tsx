@@ -14,6 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { BlogContext } from '../../contexts/blogContext'
 import { useContextSelector } from 'use-context-selector'
+
 export function Profile() {
   const userData = useContextSelector(BlogContext, (context) => {
     return context.userData

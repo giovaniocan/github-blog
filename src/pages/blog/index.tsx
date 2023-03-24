@@ -9,6 +9,7 @@ export function Blog() {
   const posts = useContextSelector(BlogContext, (context) => {
     return context.posts
   })
+
   return (
     <BlogContainer>
       <Profile />
